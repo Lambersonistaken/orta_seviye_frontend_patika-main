@@ -31,7 +31,11 @@ const friends = [{
 function App() {
   return (
     <div className="App">
-      <User name="İsmail Emir" surname="Lambacıoğlu"  email="lamberson@gmail.com" isLoggedIn = {true} age={22} friends={friends}/>
+      <User name="İsmail Emir" surname="Lambacıoğlu"  email="lamberson@gmail.com" /*isLoggedIn = {true}*/ age={22} friends={friends} address = {{
+        city: "İstanbul",
+        country: "Türkiye", 
+        zipCode: 34000,
+      }}/>
     </div>
   );
 }
