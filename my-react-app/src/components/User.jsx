@@ -1,3 +1,8 @@
+import PropTypes from "prop-types";
+
+
+
+
 function User ({name, surname, age, isLoggedIn, friends}) {
     return (
       <div>
@@ -10,8 +15,8 @@ function User ({name, surname, age, isLoggedIn, friends}) {
   
         {
          friends.map((friend,index) => {
-          return  <div key={index}>
-                      {index} - {friend} 
+          return  <div key={friend.id}>
+                      {friend.id}- {friend.name}
                   </div> 
          })
             
