@@ -6,6 +6,15 @@ function App() {
   const [name,setName] = useState("Mehmet");
   const [age,setAge] = useState(22);
   const [friends,setFriends] = useState(["Ahmet","Mehmet","Ali","Fatma","Hayriye"]);
+  const [address,setAddress] = useState({title:"İstanbul",zip:34});
+  let [counter,setCounter] = useState(0);
+  const increase = () => {
+    setCounter(counter+1);
+  }
+
+  const decrease = () => {
+    setCounter(counter-1);
+  }
 
   return (
     <div className="App">
@@ -27,6 +36,27 @@ function App() {
      <hr />
 
      <button onClick={() => setFriends([...friends, "Ayşe"])} >Add Ayşe as a Friend</button>
+
+
+      <hr />
+      <br />
+
+      <h2>Address</h2>
+
+      <div>{address.title} --------- {address.zip}-------- {address.region}</div>
+
+      <br />
+      <hr />
+
+      <button onClick={() => setAddress({...address, region:"Marmara"})} >Address Update</button>
+
+      <h1>Counter App</h1>
+      <p>{counter}</p>
+
+      
+
+      <button onClick={increase}>+</button>
+      <button onClick={decrease} >-</button>
 
 
     </div>
