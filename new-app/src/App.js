@@ -25,18 +25,26 @@ function App() {
     <br />
     <br />
 
-    <button onClick={() => setInfo([...info, {name:document.getElementById("name").value, surname:document.getElementById("surname").value, number:document.getElementById("number").value}])} >Add Contact</button>
+    <button onClick={() => {
+      setInfo([...info, {name:document.getElementById("name").value, surname:document.getElementById("surname").value, number:document.getElementById("number").value}])
+      document.getElementById("name").value = "";
+      document.getElementById("surname").value = "";
+      document.getElementById("number").value = "";
+    }} >Add Contact</button>
 
     <br />
     <br />
     <hr />
+  
 
     {
       info.map((item,index) => (
         <div key={index}>
           <h3>{item.name} {item.surname} {item.number}</h3>
 
-          {item.number && <button onClick={() => setInfo(info.filter((item2) => item2 !== item))}>Delete</button>}
+          {item.number && <button onClick={() => {
+            setInfo(info.filter((item2) => item2 !== item))
+          }}>Delete</button>}
         </div>
       ))
     }
