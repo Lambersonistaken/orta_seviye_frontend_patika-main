@@ -10,18 +10,16 @@ function App() {
     <div className="App">
     <h1>Contact List</h1>
 
-    <label htmlFor="name">Name</label>
-    <input id='name' type="text"  />
+    <input id='name' type="text" placeholder='Name' />
     <br />
     <br />
     
-    <label htmlFor="surname">Surname</label>
-    <input id='surname' type="text"  />
+    <input id='surname' type="text" placeholder='Surname'  />
     <br />
     <br />
 
-    <label htmlFor="number">Phone Number</label>
-    <input id='number' type="text"  />
+
+    <input id='number' type="text" placeholder='Phone Number' />
     <br />
     <br />
 
