@@ -29,3 +29,9 @@ ul,li {
     justify-content: space-between;
     margin-bottom: 2px;
 }
+
+.btn {
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
