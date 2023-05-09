@@ -56,3 +56,29 @@ ul{
   margin-bottom: 5px;
   background-color: whitesmoke;
 }
+
+footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 30px;
+  width: 400px;
+  padding: 10px 20px;
+  border: none;
+  box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+  margin-bottom: 5px;
+  background-color: whitesmoke;
+  margin: 0 auto;
+}
+
+
+.hb {
+  border: none;
+  background-color:beige;
+  margin-right: 5px;
+}
+
+.hb:hover {
+  cursor: pointer;
+  background-color: greenyellow;
+}
