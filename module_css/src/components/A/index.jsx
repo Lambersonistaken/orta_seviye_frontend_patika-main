@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './style.module.css'
 
-function index() {
+function A() {
   return (
     <div className={styles.title}>
       A
@@ -9,4 +9,4 @@ function index() {
   )
 }
 
-export default index
+export default A;

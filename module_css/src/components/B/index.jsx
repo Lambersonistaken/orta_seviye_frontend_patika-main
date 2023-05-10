@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from './style.module.css'
 
-function index() {
+function B() {
   return (
-    <div style={styles.title}>
+    <div className={styles.title}>
       B
     </div>
   )
 }
 
-export default index
+export default B;
