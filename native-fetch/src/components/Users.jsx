@@ -1,5 +1,7 @@
 import {useState,useEffect} from 'react'
 
+import axios from 'axios'
+
 function Users() {
 
     const [users, setUsers] = useState([])
@@ -7,9 +9,8 @@ function Users() {
 
 
    useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-        .then(response => response.json())
-        .then(json => setUsers(json) )
+        axios('https://jsonplaceholder.typicode.com/users')
+        .then(res => setUsers(res.data) )
         .finally(() => setLoading(false))
     }, [])
 
