@@ -26,16 +26,13 @@ function App() {
             <li>
               <Link to="/users">Users</Link>
             </li>
-            <li>
-            <Link to="/user">User</Link>
-            </li>
           </ul>
         </nav>
 
         <Routes>
           <Route path="/about" element={<About />} />
           <Route path="/users" element={<Users />} />
-          <Route path="/user" element={<User />} /> 
+          <Route path="/user/:id" element={<User />} /> 
           <Route path="/" element={<Home />} /> 
           
           

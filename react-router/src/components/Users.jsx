@@ -1,16 +1,36 @@
-import React from 'react'
+import {useEffect,useState} from 'react'
 import { Link } from 'react-router-dom'
-
+import axios from 'axios'
 
 function Users() {
+
+    const [users, setUsers] = useState([])
+    const [loading, setLoading] = useState(true)
+
+    useEffect(() => {
+        axios('https://jsonplaceholder.typicode.com/users')
+        .then(res => setUsers(res.data))
+        .finally(() => setLoading(false))
+    }, [])
+
   return (
     <div>
 
+        {loading ? <h2>Loading...</h2> : null}
         <h1>Users</h1>
       <ul>
-        <li><Link to="/user/1">User 1</Link></li>
-        <li><Link to="/user/2">User 2</Link></li>
-        <li><Link to="/user/3">User 3</Link></li>
+        {
+
+            users.map((user) => {
+                return (
+                    <li key={user.id}>
+                        <Link to={`/user/${user.id}`}>{user.name}</Link>
+                    </li>
+                )
+            }
+            )
+            
+        }
       </ul>
     </div>
   )
