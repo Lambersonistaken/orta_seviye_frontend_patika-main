@@ -4,12 +4,13 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Link
+  NavLink
 } from "react-router-dom";
 import About from "./components/About";
 import Home from "./components/Home";
 import Users from "./components/Users";
 import User from "./components/User";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -18,13 +19,13 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <NavLink to="/" exact activeClassName="active">Home</NavLink>
             </li>
             <li>
-              <Link to="/about">About</Link>
+              <NavLink to="/about" activeClassName="active">About</NavLink>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <NavLink to="/users" activeClassName="active">Users</NavLink>
             </li>
           </ul>
         </nav>
@@ -34,6 +35,7 @@ function App() {
           <Route path="/users" element={<Users />} />
           <Route path="/user/:id" element={<User />} /> 
           <Route path="/" element={<Home />} /> 
+          <Route path="*" element={<Error404 />} />
           
           
         </Routes>
