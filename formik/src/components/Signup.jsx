@@ -1,8 +1,21 @@
 import React from 'react';
 import { useFormik } from 'formik';
-import './App.css';
+import '../App.css'
+import validationSchema from './Validations';
 
 function Signup() {
+
+    const formik = useFormik({
+        initialValues: {
+          email: '',
+          password: '',
+          confirmPassword: '',
+        },
+        onSubmit: values => {
+          console.log(values)
+        },
+        validationSchema 
+      });
   return (
     <div>
        <h1>Sign Up</h1>

@@ -1,24 +1,14 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import './App.css';
+import './components/Signup'
+import Signup from './components/Signup';
 
 function App() {
 
-  const formik = useFormik({
-    initialValues: {
-      email: '',
-      password: '',
-      confirmPassword: '',
-    },
-    onSubmit: values => {
-      console.log(values)
-    },
-  });
-
-
   return (
     <div className="App">
-     
+     <Signup />
     </div>
   );
 }
