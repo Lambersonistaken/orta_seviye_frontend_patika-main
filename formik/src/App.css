@@ -39,3 +39,7 @@ label {
     transform: rotate(360deg);
   }
 }
+
+.error {
+  color: #f54141;
+}

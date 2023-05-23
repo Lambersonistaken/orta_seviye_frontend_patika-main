@@ -31,25 +31,26 @@ function Signup() {
           type="email"
           value={formik.values.email}
           onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
         />
 
-        {formik.errors.email ? <div className="error">{formik.errors.email}</div> : null}
+        {formik.errors.email && formik.touched.email ? <div className="error">{formik.errors.email}</div> : null}
 
         <br />
         <br />
 
         <label>Password </label>
-        <input value={formik.values.password} name='password' type='password' placeholder='password' onChange={formik.handleChange} />
+        <input value={formik.values.password} name='password' type='password' placeholder='password' onChange={formik.handleChange} onBlur={formik.handleBlur} />
 
-        {formik.errors.password ? <div className="error">{formik.errors.password}</div> : null}
+        {formik.errors.password && formik.touched.password ? <div className="error">{formik.errors.password}</div> : null}
 
         <br />
         <br />
 
         <label>Confirm Password </label>
-        <input value={formik.values.confirmPassword} name='confirmPassword' type='password' placeholder='confirm password' onChange={formik.handleChange} />
+        <input value={formik.values.confirmPassword} name='confirmPassword' type='password' placeholder='confirm password' onChange={formik.handleChange} onBlur={formik.handleBlur} />
 
-        {formik.errors.confirmPassword ? <div className="error">{formik.errors.confirmPassword}</div> : null}
+        {formik.errors.confirmPassword && formik.touched.confirmPassword ? <div className="error">{formik.errors.confirmPassword}</div> : null}
 
         <br />
         <br />
