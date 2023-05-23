@@ -14,7 +14,7 @@ function Signup() {
         onSubmit: values => {
           console.log(values)
         },
-        validationSchema 
+        validationSchema  // validasyon şemasını buraya ekledik
       });
 
       console.log(formik.errors)
@@ -34,7 +34,7 @@ function Signup() {
           onBlur={formik.handleBlur}
         />
 
-        {formik.errors.email && formik.touched.email ? <div className="error">{formik.errors.email}</div> : null}
+        {formik.errors.email && formik.touched.email ? <div className="error">{formik.errors.email}</div> : null} {/* hata mesajını buraya ekledik */}
 
         <br />
         <br />
