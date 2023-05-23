@@ -16,6 +16,9 @@ function Signup() {
         },
         validationSchema 
       });
+
+      console.log(formik.errors)
+
   return (
     <div>
        <h1>Sign Up</h1>
@@ -30,17 +33,23 @@ function Signup() {
           onChange={formik.handleChange}
         />
 
+        {formik.errors.email ? <div className="error">{formik.errors.email}</div> : null}
+
         <br />
         <br />
 
         <label>Password </label>
         <input value={formik.values.password} name='password' type='password' placeholder='password' onChange={formik.handleChange} />
 
+        {formik.errors.password ? <div className="error">{formik.errors.password}</div> : null}
+
         <br />
         <br />
 
         <label>Confirm Password </label>
         <input value={formik.values.confirmPassword} name='confirmPassword' type='password' placeholder='confirm password' onChange={formik.handleChange} />
+
+        {formik.errors.confirmPassword ? <div className="error">{formik.errors.confirmPassword}</div> : null}
 
         <br />
         <br />
