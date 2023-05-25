@@ -1,17 +1,18 @@
 import React from 'react';
+import { useState } from 'react';
 
-function Header({number,data}) {
+function Header({number,increment}) {
     console.log("Header component re-rendered");
+
   return (
     <div>
       <h1 className="head">Counter App - {number}</h1>
 
       <br />
       <br />
-
-      <code>{JSON.stringify(data)}</code>
-
+      <button onClick={increment}>ARTTIR</button>
     </div>
+    
   )
 }
 
