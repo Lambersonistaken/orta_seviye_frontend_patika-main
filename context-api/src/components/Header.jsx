@@ -8,6 +8,8 @@ function Header() {
         <h1>Context API</h1>
         <p>Active Theme : {theme} </p>
 
+        <hr />
+
     </div>
   )
 }

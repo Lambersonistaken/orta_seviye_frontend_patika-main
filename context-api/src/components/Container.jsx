@@ -1,6 +1,7 @@
 import {useContext} from 'react'
 import Button from './Button'
 import Header from './Header'
+import Profile from './Profile'
 import ThemeContext from '../context/ThemeContext'
 
 function Container() {
@@ -9,6 +10,7 @@ function Container() {
     <div className={`app ${theme}`}>
       <Button/>
         <Header/>
+        <Profile/>
     </div>
   )
 }
