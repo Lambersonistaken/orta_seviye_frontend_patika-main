@@ -1,11 +1,11 @@
 import './App.css';
 import {ThemeProvider}from './context/ThemeContext';
-import Button from './components/Button';
+import Container from './components/Container';
 function App() {
   return (
     <div className="App">
-      <ThemeProvider>
-        <Button/>
+      <ThemeProvider> {/* 1. Wrap the components with the provider */}
+        <Container/>
       </ThemeProvider>
     </div>
   );
