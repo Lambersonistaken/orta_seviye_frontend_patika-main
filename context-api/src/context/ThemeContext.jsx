@@ -1,12 +1,35 @@
-import { createContext, useState } from "react";
+import { createContext, useState, useEffect } from "react";
 
-const ThemeContext = createContext();  // ThemeContext is an object with Provider and Consumer properties
-export const ThemeProvider = ({children})=>{ // ThemeProvider is a component
-    const [theme, setTheme ]= useState("dark"); // theme is a state variable and setTheme is a function to update the theme
-    const values={ // values is an object with theme and setTheme properties
+const ThemeContext = createContext(); 
+
+export const ThemeProvider = ({children})=>{ 
+    
+    const mode = localStorage.getItem("theme")
+
+    const [theme, setTheme ]= useState(mode); 
+
+
+
+    useEffect(()=>{
+        localStorage.setItem("theme", theme);
+    },[theme]);
+
+
+
+    const values={ 
+
         theme,
         setTheme,
+
     };
-    return <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider>  // ThemeContext.Provider is a component. Children is a prop of ThemeProvider component.
+
+
+    return (
+
+            <ThemeContext.Provider value={values}>{children}</ThemeContext.Provider> 
+
+    )
+    
+    
 }
 export default ThemeContext;
