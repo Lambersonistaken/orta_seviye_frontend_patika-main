@@ -1,8 +1,8 @@
-import {createContext, useState} from "react";
+import {createContext, useState, useContext} from "react";
 
 const UserContext = createContext();
 
-export const UserProvider = ({children})=>{ 
+const UserProvider = ({children})=>{ 
 
     const [user, setUser ]= useState(null);
     const values= {user, setUser};
@@ -12,4 +12,6 @@ export const UserProvider = ({children})=>{
     )
 }
 
-export default UserContext;
+const useUser = ()=> useContext(UserContext); // custom hook
+
+export {useUser, UserProvider};

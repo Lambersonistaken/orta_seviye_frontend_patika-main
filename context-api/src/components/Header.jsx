@@ -1,8 +1,7 @@
-import {useContext} from 'react'
-import ThemeContext from '../context/ThemeContext'
+import {useTheme} from "../context/ThemeContext";
 
 function Header() {
-    const {theme, setTheme}=useContext(ThemeContext); // theme is a state variable and setTheme is a function to update the theme
+    const {theme, setTheme}=useTheme(); // theme is a state variable and setTheme is a function to update the theme
   return (
     <div>
         <h1>Context API</h1>
