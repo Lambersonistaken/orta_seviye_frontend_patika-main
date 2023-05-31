@@ -1,4 +1,4 @@
-const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
+export const url = 'https://wft-geo-db.p.rapidapi.com/v1/geo/cities';
 export const geoApiOptions = {
 	method: 'GET',
 	headers: {
