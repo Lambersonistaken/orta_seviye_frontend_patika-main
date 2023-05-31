@@ -1,33 +1,34 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 
-* {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+*{
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    border: 0;
     outline: none;
+    box-sizing: border-box;
 }
 
-body {
+body{
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #06283D;
+    background: #06283D;
 }
 
-.container {
+.container{
     position: relative;
     width: 400px;
     height: 105px;
-    background-color: #fff;
+    background: #fff;
     padding: 28px 32px;
     overflow: hidden;
     border-radius: 18px;
-    font-family: "Poppins", sans-serif;
-    transition: 0.6s ease-in-out;
+    font-family: 'Poppins', sans-serif;
+    transition: 0.6s ease-out;
 }
 
-.search-box {
+.search-box{
     width: 100%;
     height: min-content;
     display: flex;
@@ -35,58 +36,54 @@ body {
     justify-content: space-between;
 }
 
-
-.search-box input {
+.search-box input{
     color: #06283D;
     width: 80%;
     font-size: 24px;
     font-weight: 500;
-    border: none;
     text-transform: uppercase;
     padding-left: 32px;
 }
 
 .search-box input::placeholder{
-    color: #06283D;
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 500;
+    color: #06283D;
     text-transform: capitalize;
 }
 
-.search-box button {
+.search-box button{
     cursor: pointer;
     width: 50px;
     height: 50px;
-    border: none;
     color: #06283D;
-    background-color: #dff6ff;
-    border-radius: 18px;
+    background: #dff6ff;
+    border-radius: 50%;
     font-size: 22px;
-    transition: 0.4s ease-in-out;
+    transition: 0.4s ease;
 }
 
-.search-box button:hover {
+.search-box button:hover{
     color: #fff;
-    background-color: #06283D;
+    background: #06283D;
 }
 
-.search-box i {
+.search-box i{
     position: absolute;
     color: #06283D;
     font-size: 28px;
 }
 
-.weather-box {
+.weather-box{
     text-align: center;
 }
 
-.weather-box img {
+.weather-box img{
     width: 60%;
     margin-top: 30px;
-
 }
 
-.weather-box .temperature {
+.weather-box .temperature{
     position: relative;
     color: #06283D;
     font-size: 4rem;
@@ -95,59 +92,63 @@ body {
     margin-left: -16px;
 }
 
-
-.weather-box .temperature span {
+.weather-box .temperature span{
     position: absolute;
     margin-left: 4px;
     font-size: 1.5rem;
 }
 
-.weather-box .description {
+.weather-box .description{
     color: #06283D;
     font-size: 22px;
     font-weight: 500;
     text-transform: capitalize;
 }
 
-.weather-details {
+.weather-details{
     width: 100%;
     display: flex;
-    align-items: center;
     justify-content: space-between;
     margin-top: 30px;
 }
 
-.weather-details .humidity, .weather-details .wind {
+.weather-details .humidity, .weather-details .wind{
     display: flex;
     align-items: center;
     width: 50%;
     height: 100px;
 }
 
-.weather-details .humidity {
+.weather-details .humidity{
     padding-left: 20px;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
-.weather-details .wind {
+.weather-details .wind{
     padding-right: 20px;
     justify-content: flex-end;
 }
 
-.weather-details i {
+.weather-details i{
     color: #06283D;
     font-size: 26px;
     margin-right: 10px;
     margin-top: 6px;
 }
 
-.weather-details span {
+.weather-details span{
     color: #06283D;
     font-size: 22px;
     font-weight: 500;
 }
 
-.not-found {
+.weather-details p{
+    color: #06283D;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.not-found{
     width: 100%;
     text-align: center;
     margin-top: 50px;
@@ -156,30 +157,30 @@ body {
     display: none;
 }
 
-.not-found img {
+.not-found img{
     width: 70%;
 }
 
-.not-found p {
+.not-found p{
     color: #06283D;
     font-size: 22px;
     font-weight: 500;
     margin-top: 12px;
 }
 
-.weather-box .weather-details {
+.weather-box, .weather-details{
     scale: 0;
     opacity: 0;
 }
 
-.fade-in {
-    animation: 0.5s fadeIn ease-in-out forwards;
+.fadeIn{
+    animation: 0.5s fadeIn forwards;
     animation-delay: 0.5s;
 }
 
-@keyframes fadeIn {
+@keyframes fadeIn{
     to {
-        opacity: 1;
         scale: 1;
+        opacity: 1;
     }
 }
