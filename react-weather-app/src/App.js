@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { WeatherProvider, useWeather } from "./contexts/WeatherContext";
+import SearchBar from "./components/SearchBar";
+import WeatherCard from "./components/WeatherCard";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <WeatherProvider>
+      <AppContent />
+    </WeatherProvider>
+  );
+};
+
+const AppContent = () => {
+  const { weatherData } = useWeather();
+
+  return (
+    <div className="app">
+      <SearchBar />
+      {weatherData && <WeatherCard data={weatherData} />}
     </div>
   );
-}
+};
 
 export default App;
