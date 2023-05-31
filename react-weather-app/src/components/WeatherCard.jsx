@@ -70,7 +70,7 @@ const WeatherCard = () => {
                     alt="Weather"
                   />
                   <p>Time: {item.dt_txt.split(" ")[1]}</p>
-                  <p>Temperature: {item.main.temp}°C</p>
+                  <p>Temperature: {parseInt(item.main.temp - 273.15)}°C</p>
                   <p>Description: {item.weather[0].description}</p>
                 </div>
               ))}
