@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500&display=swap');
 .app {
   width: 1000px;
   margin: 0 auto;
+  font-family: 'Manrope', sans-serif;
+  font-weight: 400;
 }
+body {
+  background: url("../public/back.png");
+  background-size: 100%
+}
+
 
 .App-logo {
   height: 40vmin;

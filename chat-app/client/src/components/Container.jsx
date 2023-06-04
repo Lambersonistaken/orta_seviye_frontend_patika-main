@@ -3,8 +3,10 @@
 import { useEffect, useState } from "react";
 import ChatList from "./ChatList";
 import ChatForm from "./ChatForm";
-import { init, subscribeToChat } from "../socketApi";
+import style from "./style.module.css";
+import { init, subscribeInitialMessages, subscribeToChat } from "../socketApi";
 import { useChat } from "../context/ChatContext";
+import { set } from "@project-serum/anchor/dist/cjs/utils/features";
 
 function Container() {
   const { setMessages } = useChat();
@@ -20,7 +22,10 @@ function Container() {
   }, []);
 
   useEffect(() => {
+    // Abonelik etkinse, mesajları dinle
     if (isSubscribed) {
+      subscribeInitialMessages((messages) => setMessages(messages)); // İlk mesajları al
+
       subscribeToChat((message) => {
         console.log(message);
         setMessages((prev) => [...prev, { message }]);
@@ -30,6 +35,7 @@ function Container() {
 
   return (
     <div className="app">
+      <h1 className={style.title}>Lamberson Chat</h1>
       <ChatList />
       <ChatForm />
     </div>

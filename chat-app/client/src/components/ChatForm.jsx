@@ -19,12 +19,15 @@ function ChatForm() {
     <div>
       <form onSubmit={handleSubmit}>
         <input
+          placeholder="Press enter to send message"
           type="text"
           className={style.textInput}
           value={message}
           onChange={(e) => setMessage(e.target.value)}
         />
       </form>
+      <img className={style.sendIco} src="/send.png" alt="Send" />{" "}
+      {/* Send ikonu */}
     </div>
   );
 }

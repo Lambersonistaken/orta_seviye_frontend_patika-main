@@ -1,18 +1,28 @@
+// ChatList.jsx
+
 import React from "react";
 import styles from "./style.module.css";
 import { useChat } from "../context/ChatContext";
 import ChatItem from "./ChatItem";
+import ScrollableFeed from "react-scrollable-feed";
 
 function ChatList() {
-  const { messages } = useChat();
+  const { messages, setMessages } = useChat();
+
+  const handleClearMessages = () => {
+    setMessages([]); // Mesajları temizle
+  };
 
   return (
     <div className={styles.chatlist}>
-      <div>
+      <ScrollableFeed>
         {messages.map((item, key) => (
           <ChatItem key={key} item={item} />
         ))}
-      </div>
+      </ScrollableFeed>
+      <button className={styles.butt} onClick={handleClearMessages}>
+        Temizle
+      </button>{" "}
     </div>
   );
 }
