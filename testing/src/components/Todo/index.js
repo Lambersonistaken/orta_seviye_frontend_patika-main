@@ -1,37 +1,42 @@
 import { useState } from "react";
 import "./style.css";
 
+const defaultItems = [
+  {
+    name: "TODO A",
+  },
+  {
+    name: "TODO B",
+  },
+  {
+    name: "TODO C",
+  },
+];
+
 function Todo() {
-  const [todo, setTodo] = useState([
-    { id: 1, title: "todo1" },
-    { id: 2, title: "todo2" },
-  ]);
-  const handleKeyDown = (e) => {
-    if (e.key === "Enter" && e.target.value.trim() !== "") {
-      const newTodo = { id: todo.length + 1, title: e.target.value };
-      setTodo([...todo, newTodo]);
-      e.target.value = ""; // Girdiyi temizle
-    }
+  const addItem = () => {
+    setItems((prev) => [...prev, { name: text }]);
+    setText("");
   };
 
-  const handleDelete = (id) => {
-    const newTodo = todo.filter((item) => item.id !== id);
-    setTodo(newTodo);
-  };
+  const [text, setText] = useState("");
+  const [items, setItems] = useState(defaultItems);
 
   return (
     <div>
-      <input type="text" onKeyDown={handleKeyDown} />
+      <input
+        className="input"
+        type="text"
+        value={text}
+        onChange={(e) => setText(e.target.value)}
+      />
+      <br />
+      <button onClick={addItem}>Add</button>
+
       <ul>
-        {todo.map((item) => (
-          <li className="todo-item" key={item.id}>
-            {item.title}
-            <button
-              className="delete-btn"
-              onClick={() => handleDelete(item.id)}
-            >
-              Delete
-            </button>
+        {items.map((item, index) => (
+          <li className="todo-item" key={index}>
+            {item.name}
           </li>
         ))}
       </ul>
