@@ -25,6 +25,7 @@ function Todo() {
   return (
     <div>
       <input
+        placeholder="Add a new task here..."
         className="input"
         type="text"
         value={text}
