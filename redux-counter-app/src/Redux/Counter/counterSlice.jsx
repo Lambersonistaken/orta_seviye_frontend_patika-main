@@ -7,16 +7,17 @@ export const counterSlice = createSlice({
   },
   reducers: {
     // actions, state güncellemek için kullanılır
-    // increment: (state) => {
-    //   state.value += 1;
-    // },
-    // decrement: (state) => {
-    //   state.value -= 1;
-    // },
-    // double: (state) => {
-    //   state.value *= 2;
-    // },
+    increment: (state) => {
+      state.value += 1;
+    },
+    decrement: (state) => {
+      state.value -= 1;
+    },
+    double: (state) => {
+      state.value *= 2;
+    },
   },
 });
 
+export const { increment, decrement, double } = counterSlice.actions;
 export default counterSlice.reducer;
