@@ -16,8 +16,16 @@ export const counterSlice = createSlice({
     double: (state) => {
       state.value *= 2;
     },
+    zero: (state) => {
+      state.value = 0;
+    },
+    incrementByAmount: (state, action) => {
+      // action payload ile gelen değeri alır
+      state.value += Number(action.payload); // ???
+    },
   },
 });
 
-export const { increment, decrement, double } = counterSlice.actions;
+export const { increment, decrement, double, zero, incrementByAmount } =
+  counterSlice.actions;
 export default counterSlice.reducer;
