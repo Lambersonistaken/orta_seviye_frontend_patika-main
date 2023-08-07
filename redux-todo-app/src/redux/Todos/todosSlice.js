@@ -21,12 +21,7 @@ export const todosSlice = createSlice({
   ],
   reducers: {
     addTodo: (state, action) => {
-      const newTodo = {
-        id: Date.now(),
-        title: action.payload.title,
-        completed: false,
-      };
-      state.push(newTodo);
+      state.push(action.payload);
     },
     toggleComplete: (state, action) => {
       const index = state.findIndex((todo) => todo.id === action.payload.id);
