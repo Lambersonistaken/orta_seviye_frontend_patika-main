@@ -23,15 +23,13 @@ export const todosSlice = createSlice({
     addTodo: (state, action) => {
       state.push(action.payload);
     },
-    toggleComplete: (state, action) => {
-      const index = state.findIndex((todo) => todo.id === action.payload.id);
-      state[index].completed = action.payload.completed;
-    },
-    deleteTodo: (state, action) => {
-      return state.filter((todo) => todo.id !== action.payload.id);
+    toggle: (state, action) => {
+      const { id } = action.payload;
+      const todos = state.find((todo) => todo.id === id);
+      todos.completed = !todos.completed;
     },
   },
 });
 
-export const { addTodo, toggleComplete, deleteTodo } = todosSlice.actions;
+export const { addTodo, toggle } = todosSlice.actions;
 export default todosSlice.reducer;
