@@ -1,10 +1,16 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { toggle } from "../redux/Todos/todosSlice";
+import { destroy, toggle } from "../redux/Todos/todosSlice";
 function TodoList() {
   const todos = useSelector((state) => state.todos);
   console.log(todos);
   const dispatch = useDispatch();
+
+  const handleDestroy = (id) => {
+    if (window.confirm("Are you sure you want to delete this todo?")) {
+      dispatch(destroy(id));
+    }
+  };
 
   return (
     <ul className="todo-list">
@@ -18,7 +24,10 @@ function TodoList() {
               onChange={() => dispatch(toggle({ id: todo.id }))}
             />
             <label>{todo.title}</label>
-            <button className="destroy"></button>
+            <button
+              onClick={() => handleDestroy(todo.id)}
+              className="destroy"
+            ></button>
           </div>
         </li>
       ))}
