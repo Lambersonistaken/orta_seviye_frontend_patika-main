@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { addTodo, deleteTodo, toggleComplete } from "../redux/Todos/todosSlice";
+import { addTodo } from "../redux/Todos/todosSlice";
 import { useDispatch } from "react-redux";
 import { nanoid } from "@reduxjs/toolkit";
 
@@ -9,6 +9,7 @@ function Form() {
   const [title, setTitle] = useState("");
 
   function handleSubmit(e) {
+    if (!title) return alert("Please enter a todo");
     e.preventDefault();
     console.log(title);
     dispatch(
