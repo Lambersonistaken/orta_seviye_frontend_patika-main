@@ -1,10 +1,19 @@
-import { createSlice, nanoid, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
 
 export const getTodosAsync = createAsyncThunk(
   "todos/getTodosAsync",
   async () => {
     const res = await fetch("http://localhost:7000/todos");
     return await res.json();
+  }
+);
+
+export const addTodoAsync = createAsyncThunk(
+  "todos/addTodoAsync",
+  async (data) => {
+    const res = await axios.post("http://localhost:7000/todos", data);
+    return res.data;
   }
 );
 
@@ -15,23 +24,9 @@ export const todosSlice = createSlice({
     isLoading: false,
     error: null,
     activeFilter: "all",
+    addNewTodoLoading: false,
   },
   reducers: {
-    addTodo: {
-      reducer: (state, action) => {
-        state.items.push(action.payload);
-      },
-      prepare: ({ title }) => {
-        // burda tek tek id eklemektense prepare kullanıyoruz
-        return {
-          payload: {
-            id: nanoid(),
-            title,
-            completed: false,
-          },
-        };
-      },
-    },
     toggle: (state, action) => {
       const { id } = action.payload;
       const todos = state.items.find((todo) => todo.id === id);
@@ -63,6 +58,18 @@ export const todosSlice = createSlice({
       state.isLoading = false;
       state.error = action.error.message;
     },
+    // addTodoAsync
+    [addTodoAsync.pending]: (state, action) => {
+      state.addNewTodoLoading = true;
+    },
+    [addTodoAsync.fulfilled]: (state, action) => {
+      state.addNewTodoLoading = false;
+      state.items.push(action.payload);
+    },
+    [addTodoAsync.rejected]: (state, action) => {
+      state.addNewTodoLoading = false; // 6.12 dakika
+      state.error = action.error.message;
+    },
   },
 });
 
@@ -77,6 +84,6 @@ export const selectFilteredTodos = (state) => {
   }
 };
 
-export const { addTodo, toggle, destroy, changeActiveFilter, clearCompleted } =
+export const { toggle, destroy, changeActiveFilter, clearCompleted } =
   todosSlice.actions;
 export default todosSlice.reducer;
