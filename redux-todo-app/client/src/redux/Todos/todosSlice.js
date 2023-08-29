@@ -4,7 +4,7 @@ import axios from "axios";
 export const getTodosAsync = createAsyncThunk(
   "todos/getTodosAsync",
   async () => {
-    const res = await fetch("http://localhost:7000/todos");
+    const res = await fetch(`${process.env.REACT_APP_API_BASE_ENDPOINT}/todos`);
     return await res.json();
   }
 );
@@ -12,7 +12,10 @@ export const getTodosAsync = createAsyncThunk(
 export const addTodoAsync = createAsyncThunk(
   "todos/addTodoAsync",
   async (data) => {
-    const res = await axios.post("http://localhost:7000/todos", data);
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_BASE_ENDPOINT}/todos`,
+      data
+    );
     return res.data;
   }
 );
@@ -24,7 +27,8 @@ export const todosSlice = createSlice({
     isLoading: false,
     error: null,
     activeFilter: "all",
-    addNewTodoLoading: false,
+    addNewTodoIsLoading: false,
+    addNewTodoError: null,
   },
   reducers: {
     toggle: (state, action) => {
@@ -60,15 +64,15 @@ export const todosSlice = createSlice({
     },
     // addTodoAsync
     [addTodoAsync.pending]: (state, action) => {
-      state.addNewTodoLoading = true;
+      state.addNewTodoIsLoading = true;
     },
     [addTodoAsync.fulfilled]: (state, action) => {
-      state.addNewTodoLoading = false;
+      state.addNewTodoIsLoading = false;
       state.items.push(action.payload);
     },
     [addTodoAsync.rejected]: (state, action) => {
-      state.addNewTodoLoading = false; // 6.12 dakika
-      state.error = action.error.message;
+      state.addNewTodoIsLoading = false;
+      state.addNewTodoError = action.error.message;
     },
   },
 });
