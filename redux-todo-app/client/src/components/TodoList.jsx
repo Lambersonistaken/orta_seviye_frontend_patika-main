@@ -12,8 +12,8 @@ import {
 function TodoList() {
   const dispatch = useDispatch();
   const filtered = useSelector(selectFilteredTodos);
-  const isLoading = useSelector((state) => state.todos.isLoading);
-  const error = useSelector((state) => state.todos.error);
+  const isLoading = useSelector((state) => state.todos.addNewTodo.isLoading);
+  const error = useSelector((state) => state.todos.addNewTodo.error);
 
   useEffect(() => {
     dispatch(getTodosAsync());

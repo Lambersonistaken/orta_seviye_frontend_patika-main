@@ -34,10 +34,10 @@ export const toggleTodoAsync = createAsyncThunk(
 export const removeTodoAsync = createAsyncThunk(
   "todos/removeTodoAsync",
   async (id) => {
-    const res = await axios.delete(
+    await axios.delete(
       `${process.env.REACT_APP_API_BASE_ENDPOINT}/todos/${id}`
     );
-    return res.data;
+    return id;
   }
 );
 
@@ -48,8 +48,10 @@ export const todosSlice = createSlice({
     isLoading: false,
     error: null,
     activeFilter: "all",
-    addNewTodoIsLoading: false,
-    addNewTodoError: null,
+    addNewTodo: {
+      isLoading: false,
+      error: null,
+    },
   },
   reducers: {
     changeActiveFilter: (state, action) => {
@@ -75,15 +77,15 @@ export const todosSlice = createSlice({
     },
     // addTodoAsync
     [addTodoAsync.pending]: (state, action) => {
-      state.addNewTodoIsLoading = true;
+      state.addNewTodo.isLoading = true;
     },
     [addTodoAsync.fulfilled]: (state, action) => {
-      state.addNewTodoIsLoading = false;
+      state.addNewTodo.isLoading = false;
       state.items.push(action.payload);
     },
     [addTodoAsync.rejected]: (state, action) => {
-      state.addNewTodoIsLoading = false;
-      state.addNewTodoError = action.error.message;
+      state.addNewTodo.isLoading = false;
+      state.addNewTodo.error = action.error.message;
     },
     // toggleTodoAsync
     [toggleTodoAsync.pending]: (state, action) => {
