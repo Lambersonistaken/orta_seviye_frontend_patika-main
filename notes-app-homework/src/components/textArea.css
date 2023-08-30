@@ -1,0 +1,108 @@
+.wideInput {
+    text-align: left;
+    width: 550px;
+    height: 170px;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  
+  .pink {
+    background-color: #f84ac4;
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+  }
+  
+  .pink:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .blue:hover,
+  .green:hover,
+  .yellow:hover,
+  .purple:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  .blue {
+    background-color: #4a9cf8;
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+  }
+  
+  .green {
+    background-color: #4af8a3;
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+  }
+  
+  .yellow {
+    background-color: #f8e64a;
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+  }
+  
+  .purple {
+    background-color: #a64af8;
+    border-radius: 50px;
+    padding: 10px;
+    border: none;
+  }
+  
+  .buttonContainer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .colorPicker {
+    display: flex;
+    justify-content: space-around;
+    width: 200px;
+    margin-bottom: 15px;
+  }
+  
+  .note-button {
+    border: none;
+    border-radius: 14px;
+    background-color: rgb(123, 221, 32);
+    padding: 10px 30px 10px 30px;
+    color: white;
+    font-weight: 600;
+  }
+  
+  .note-button:hover {
+    cursor: pointer;
+    background-color: rgba(123, 221, 32, 0.8);
+    transform: scale(1.1);
+  }
+  
+  .note-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .note {
+    flex: 1;
+    padding: 10px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+    width: 200px; /* Belirli bir genişlik */
+    max-width: 100%; /* Genişlik sınırı */
+    word-wrap: break-word; /* Kelimeleri bölecek */
+    overflow-wrap: break-word; /* Kelimeleri bölecek */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4); /* Gölge efekti */
+  }
+  
+  

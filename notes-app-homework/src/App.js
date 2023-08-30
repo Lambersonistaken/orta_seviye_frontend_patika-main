@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Header from "./components/Header";
+import TextArea from "./components/TextArea";
+import NoteList from "./components/NoteList";
+import "./App.css";
 
 function App() {
+  const [notes, setNotes] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const addNote = (note) => {
+    setNotes([...notes, note]);
+  };
+
+  const handleSearch = (searchTerm) => {
+    setSearchTerm(searchTerm);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header onSearch={handleSearch} />
+      <TextArea onAddNote={addNote} />
+      <NoteList notes={notes} searchTerm={searchTerm} />
     </div>
   );
 }
