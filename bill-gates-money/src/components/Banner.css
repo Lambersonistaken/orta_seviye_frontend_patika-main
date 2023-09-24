@@ -1,0 +1,17 @@
+.banner_container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 350px;
+    border: 1px solid red;
+    margin: 50px auto;
+    background-color: #1a1a1a;
+    color: white;
+}
+
+img {
+    border-radius: 1000px;
+    width: 150px;
+    height: 150px;
+}
